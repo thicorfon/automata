@@ -1,6 +1,9 @@
 defmodule Automata do
 
   def apply_dfa(automata, tape_head, current_state) do
+    transitions = Map.get(automata, :transitions)
+    current_state_transitions = Map.get(transitions, current_state)
+    Map.get(current_state_transitions, tape_head)
   end
 
   def run_dfa(automata, [], current_state) do
